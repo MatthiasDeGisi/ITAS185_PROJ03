@@ -1,0 +1,4 @@
+Motorcycle,Harley Davidson,Black,
+Motorcycle,Vespa,Pink,
+Motorcycle,Kawasaki Rocket,Red,
+Motorcycle,Yamaha Scooter,Blue,

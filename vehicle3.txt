@@ -1,0 +1,8 @@
+Motorcycle,Kawasaki Ninja,Green,
+Truck,Dodge RAM,White,False,
+Truck,Silverado,Purple,True,
+Motorcycle,Yamaha Blaster,Blue,
+Truck,Toyota Forerunner,Red,False
+Truck,Dodge RAM S2000,Black,True
+Tesla,S90,Blue,False
+Motorcycle,Vespa,Chartreuse,
