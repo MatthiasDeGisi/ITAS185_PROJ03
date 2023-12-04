@@ -1,5 +1,5 @@
 """
 Course: ITAS 185 - Introduction to Programming
 Project 03
-Description: Abstract vehicle class
+Description: Tesla class
 """
