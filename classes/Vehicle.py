@@ -48,6 +48,3 @@ class Vehicle(ABC):
 
     def __str__(self) -> str:
         return f"Model: {self.__model}, Colour: {self.__colour}, Speed: {self.__speed}, Position: {self.__position}"
-
-    def __repr__():
-        pass
