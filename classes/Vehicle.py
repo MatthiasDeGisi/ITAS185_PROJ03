@@ -8,31 +8,31 @@ from abc import ABC, abstractmethod
 
 class Vehicle(ABC):
     def __init__(self, model: str, colour: str):
-        self.model = model
-        self.colour = colour
-        self.speed = 0
-        self.position = 0
+        self.__model = model
+        self.__colour = colour
+        self.__speed = 0
+        self.__position = 0
 
     def set_position(self, new_position: float):
-        self.position = new_position
+        self.__position = new_position
 
     def set_speed(self, speed: float) -> float:
-        self.speed = speed
+        self.__speed = speed
 
     def get_model(self) -> str:
-        return self.model
+        return self.__model
 
     def get_colour(self) -> str:
-        return self.colour
+        return self.__colour
 
     def get_speed(self) -> float:
-        return self.speed
+        return self.__speed
 
     def get_position(self) -> float:
-        return self.position
+        return self.__position
 
     def move(self):
-        new_position = self.position + self.speed
+        new_position = self.__position + self.__speed
         self.set_position(new_position)
 
     @abstractmethod
@@ -44,10 +44,10 @@ class Vehicle(ABC):
         pass
 
     def get_position_int(self) -> int:
-        return int(self.position)
+        return int(self.__position)
 
     def __str__(self) -> str:
-        return f"Model: {self.model}, Colour: {self.colour}, Speed: {self.speed}, Position: {self.position}"
+        return f"Model: {self.__model}, Colour: {self.__colour}, Speed: {self.__speed}, Position: {self.__position}"
 
     def __repr__():
         pass
