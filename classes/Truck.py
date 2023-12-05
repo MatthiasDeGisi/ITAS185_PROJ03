@@ -12,17 +12,17 @@ class Truck(v.Vehicle):
         self.__is_diesel = is_diesel
 
     @property
-    def __accel(self) -> float:
+    def accel(self) -> float:
         if self.__is_diesel is True:
             return 0.4
         else:
             return 0.5
 
     def accelerate(self):
-        self.__current_speed += self.__accel
+        self.set_speed(self.get_speed() + self.__accel)
 
     def get_icon(self) -> str:
         return "T"
 
     def __str__(self) -> str:
-        return super().str() + f", Diesel: {self.__is_diesel}"
+        return super().__str__() + f", Diesel: {self.__is_diesel}"

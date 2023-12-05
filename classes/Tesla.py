@@ -12,17 +12,17 @@ class Tesla(v.Vehicle):
         self.__is_two_motor = is_two_motor
 
     @property
-    def __accel(self) -> float:
+    def accel(self) -> float:
         if self.__is_two_motor is True:
             return 0.7
         else:
             return 0.6
 
     def accelerate(self):
-        self.__current_speed += self.__accel
+        self.set_speed(self.get_speed() + self.__accel)
 
     def get_icon(self) -> str:
         return "E"
 
     def __str__(self) -> str:
-        return super().str() + f", Two Motor: {self.__is_two_motor}"
+        return super().__str__() + f", Two Motor: {self.__is_two_motor}"

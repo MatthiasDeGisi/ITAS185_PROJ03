@@ -41,6 +41,7 @@ class RaceTrack:
             print("=", end="")
             if item.get_position_int() == self.__length + 1:
                 print(item.get_icon(), end="")
+                self.__race_won
             else:
                 print("=", end="")
         print("|-[Finish]")
@@ -49,3 +50,4 @@ class RaceTrack:
     def champion(self, winner):
         print("Congratulations! The winner is:")
         print(winner)
+    

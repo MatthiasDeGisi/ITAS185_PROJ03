@@ -8,9 +8,13 @@ import classes.Truck as t
 import classes.Tesla as e
 import classes.RaceTrack as r
 
+import os
+import time
+
 if __name__ == "__main__":
     while True:
         race_vehicles = []
+        os.system("cls")
         file_name = input("Enter the name of a text data file to open: ")
         if not file_name.endswith(".txt"):
             file_name += ".txt"
@@ -44,10 +48,22 @@ if __name__ == "__main__":
         except FileNotFoundError as msg:
             print(msg)
             continue
-
-        racetrack = r.RaceTrack()
+        for item in race_vehicles:
+            print(item)
+            print(item.accel)
+        time.sleep(20)
+        
+        racetrack = r.RaceTrack("test", 40)
+        race_is_won = False
         round = 1
-        while round <= 20:
+        while not race_is_won:
             racetrack.print_track(race_vehicles, round)
             round += 1
-        break
+            for item in race_vehicles:
+                if item.get_position() > racetrack.get_length():
+                    race_is_won = True
+                else:
+                    item.accelerate()
+                    item.move()
+                    print(item)
+                    time.sleep(2)
