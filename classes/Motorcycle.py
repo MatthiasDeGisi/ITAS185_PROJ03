@@ -25,4 +25,4 @@ class Motorcycle(v.Vehicle):
         return "M"
 
     def __str__(self) -> str:
-        return super().str()
+        return super().__str__()

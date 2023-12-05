@@ -11,7 +11,6 @@ class RaceTrack:
         self.__name = name
         self.__length = length
         self.__round = 0
-        self.race_vehicles = []
 
     def get_name(self) -> str:
         return self.__name
@@ -19,12 +18,12 @@ class RaceTrack:
     def get_length(self) -> int:
         return self.__length
 
-    def __str__(self) -> str:
+    def __str__(self, race_list) -> str:
         print(f"Race Round: [{self.get_round()}]")
         counter = 0
         for number in range(self.__length):
             print("|")
-            for item in self.race_vehicles:
+            for item in race_list:
                 if item.get_position_int() == counter:
                     print(item.get_icon())
                 else:
