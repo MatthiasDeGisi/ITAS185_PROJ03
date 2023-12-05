@@ -22,7 +22,7 @@ class Tesla(v.Vehicle):
         self.__current_speed += self.__accel
 
     def get_icon(self) -> str:
-        return "T"
+        return "E"
 
     def __str__(self) -> str:
         return super().str() + f", Two Motor: {self.__is_two_motor}"

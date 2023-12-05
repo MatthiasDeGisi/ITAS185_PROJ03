@@ -45,5 +45,9 @@ if __name__ == "__main__":
             print(msg)
             continue
 
-        print(race_vehicles[0])
+        racetrack = r.RaceTrack()
+        round = 1
+        while round <= 20:
+            racetrack.print_track(race_vehicles, round)
+            round += 1
         break
