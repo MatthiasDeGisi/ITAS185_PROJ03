@@ -7,7 +7,7 @@ import classes.Vehicle as v
 
 
 class Truck(v.Vehicle):
-    def __init__(self, model: str, colour: str, is_diesel: bool):
+    def __init__(self, model: str, colour: str, is_diesel: bool) -> None:
         super().__init__(model, colour)
         self.__is_diesel = eval(is_diesel)
         if self.__is_diesel is True:
@@ -15,7 +15,7 @@ class Truck(v.Vehicle):
         else:
             self.__accel = 0.5
 
-    def accelerate(self):
+    def accelerate(self) -> None:
         self.set_speed(self.get_speed() + self.__accel)
 
     def get_icon(self) -> str:

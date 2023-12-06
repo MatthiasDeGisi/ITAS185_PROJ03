@@ -9,13 +9,13 @@ import classes.Vehicle as v
 class Motorcycle(v.Vehicle):
     def __init__(
         self,
-        model,
-        colour,
-    ):
+        model: str,
+        colour: str,
+    ) -> None:
         super().__init__(model, colour)
         self.__accel = 0.6
 
-    def accelerate(self):
+    def accelerate(self) -> None:
         self.set_speed(self.get_speed() + self.__accel)
 
     def get_icon(self) -> str:
