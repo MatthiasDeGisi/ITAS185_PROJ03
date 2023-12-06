@@ -12,6 +12,26 @@ import os
 import time
 
 if __name__ == "__main__":
+    os.system("cls")
+    print("Welcome to racepy!")
+
+    track_name = input("Enter a name for your racetrack (or leave blank for default): ")
+    if not track_name:
+        track_name = "ITAS Motor Speedway"
+    while True:
+        try:
+            track_length = int(input("Enter a track length (integer from 20-42): "))
+            assert track_length >= 20, "Track length cannot be lower than 20"
+            assert track_length <= 42, "Track length cannot be higher than 42"
+        except ValueError:
+            print("Track length must be an integer")
+        except AssertionError as msg:
+            print(msg)
+        else:    
+            racetrack = r.RaceTrack(track_name, track_length)
+            break
+
+        
     while True:
         race_vehicles = []
         os.system("cls")
@@ -56,8 +76,7 @@ if __name__ == "__main__":
             print(msg)
             continue
 
-        # instantiate racetrack
-        racetrack = r.RaceTrack()
+        # starts race
         round = 0
         racetrack.print_track(race_vehicles, round)
         while not racetrack.get_race_is_won():
@@ -79,6 +98,6 @@ if __name__ == "__main__":
             continue
         except KeyboardInterrupt:
             os.system("cls")
-            print("Thanks for playing!")
+            print("Thanks for playing racepy!")
             time.sleep(1)
             break
