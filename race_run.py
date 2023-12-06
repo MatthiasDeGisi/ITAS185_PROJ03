@@ -34,7 +34,7 @@ if __name__ == "__main__":
             break
 
     while True:
-        os.system("cls")
+        racetrack.animation()
         race_vehicles = []
         # user input
         file_name = input("Enter the name of a text data file to open: ")
@@ -97,7 +97,7 @@ if __name__ == "__main__":
             input("Press enter to race again, or ctrl + c to exit.")
             continue
         except KeyboardInterrupt:
-            os.system("cls")
+            racetrack.animation()
             print("Thanks for playing racepy!")
             time.sleep(1)
             break
