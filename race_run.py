@@ -18,7 +18,7 @@ if __name__ == "__main__":
     # user input (validated)
     track_name = input("Enter a name for your racetrack (or leave blank for default): ")
     if not track_name:
-        track_name = "ITAS Motor Speedway"
+        track_name = ""
     while True:
         try:
             track_length = int(input("Enter a track length (integer from 20-42): "))
@@ -44,6 +44,7 @@ if __name__ == "__main__":
         # opening and processing lines
         try:
             with open(file_name) as file_handle:
+                #readlines and move processing to else -AM
                 for line in file_handle:
                     read_attributes = line.split(",")
 
