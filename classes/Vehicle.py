@@ -48,9 +48,3 @@ class Vehicle(ABC):
 
     def __str__(self) -> str:
         return f"Model: {self.__model}, Colour: {self.__colour}, Speed: {self.__speed}, Position: {self.__position}"
-    
-    # def __eq__(self, other) -> bool:
-    #     return self.__position == other.get_position()
-    
-    # def __lt__(self, other) -> bool:
-    #     return self.__position < other.get_position()

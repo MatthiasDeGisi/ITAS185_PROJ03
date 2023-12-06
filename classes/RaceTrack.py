@@ -6,6 +6,7 @@ Description: Racetrack class
 import os
 import time
 
+
 class RaceTrack:
     def __init__(self, name: str = "ITAS Motor Speedway", length: int = 20):
         self.__name = name
@@ -49,7 +50,7 @@ class RaceTrack:
     def champion(self, champion: object):
         print("Congratulations! The winner is:")
         print(champion)
-    
+
     def find_champion(self, race_vehicles: list) -> object:
         race_vehicles.sort(key=lambda x: x.get_position(), reverse=True)
         return race_vehicles[0]
