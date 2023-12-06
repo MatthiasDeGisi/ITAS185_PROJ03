@@ -9,14 +9,11 @@ import classes.Vehicle as v
 class Tesla(v.Vehicle):
     def __init__(self, model: str, colour: str, is_two_motor: bool):
         super().__init__(model, colour)
-        self.__is_two_motor = is_two_motor
-
-    @property
-    def accel(self) -> float:
+        self.__is_two_motor = eval(is_two_motor)
         if self.__is_two_motor is True:
-            return 0.7
+            self.__accel = 0.7
         else:
-            return 0.6
+            self.__accel = 0.6
 
     def accelerate(self):
         self.set_speed(self.get_speed() + self.__accel)

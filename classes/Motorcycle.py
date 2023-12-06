@@ -13,10 +13,7 @@ class Motorcycle(v.Vehicle):
         colour,
     ):
         super().__init__(model, colour)
-
-    @property
-    def accel(self) -> float:
-        return 0.6
+        self.__accel = 0.6
 
     def accelerate(self):
         self.set_speed(self.get_speed() + self.__accel)

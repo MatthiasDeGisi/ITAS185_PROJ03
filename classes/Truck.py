@@ -9,14 +9,11 @@ import classes.Vehicle as v
 class Truck(v.Vehicle):
     def __init__(self, model: str, colour: str, is_diesel: bool):
         super().__init__(model, colour)
-        self.__is_diesel = is_diesel
-
-    @property
-    def accel(self) -> float:
+        self.__is_diesel = eval(is_diesel)
         if self.__is_diesel is True:
-            return 0.4
+            self.__accel = 0.4
         else:
-            return 0.5
+            self.__accel = 0.5
 
     def accelerate(self):
         self.set_speed(self.get_speed() + self.__accel)
