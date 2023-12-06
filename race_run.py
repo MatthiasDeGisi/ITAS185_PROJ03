@@ -3,7 +3,7 @@ Course: ITAS 185 - Introduction to Programming
 Project 03
 Description: File that runs the race
 """
-import classes.Motorcycle as m #test
+import classes.Motorcycle as m
 import classes.Truck as t
 import classes.Tesla as e
 import classes.RaceTrack as r
@@ -48,22 +48,26 @@ if __name__ == "__main__":
         except FileNotFoundError as msg:
             print(msg)
             continue
-        for item in race_vehicles:
-            print(item)
-            print(item.accel)
-        time.sleep(20)
-        
-        racetrack = r.RaceTrack("test", 40)
+
+        racetrack = r.RaceTrack()
         race_is_won = False
         round = 1
         while not race_is_won:
             racetrack.print_track(race_vehicles, round)
             round += 1
             for item in race_vehicles:
-                if item.get_position() > racetrack.get_length():
+                if item.get_position_int() > racetrack.get_length():
                     race_is_won = True
                 else:
                     item.accelerate()
                     item.move()
-                    print(item)
-                    time.sleep(2)
+        champion = racetrack.find_champion(race_vehicles)
+        racetrack.champion(champion)
+        try:
+            input("Press enter to race again, or ctrl + c to exit.")
+            continue
+        except KeyboardInterrupt:
+            os.system("cls")
+            print("Thanks for playing!")
+            time.sleep(1)
+            break
