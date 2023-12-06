@@ -15,6 +15,7 @@ if __name__ == "__main__":
     os.system("cls")
     print("Welcome to racepy!")
 
+    # user input (validated)
     track_name = input("Enter a name for your racetrack (or leave blank for default): ")
     if not track_name:
         track_name = "ITAS Motor Speedway"
@@ -27,15 +28,14 @@ if __name__ == "__main__":
             print("Track length must be an integer")
         except AssertionError as msg:
             print(msg)
-        else:    
+        else:
+            # creates the racetrack
             racetrack = r.RaceTrack(track_name, track_length)
             break
 
-        
     while True:
-        race_vehicles = []
         os.system("cls")
-
+        race_vehicles = []
         # user input
         file_name = input("Enter the name of a text data file to open: ")
         if not file_name.endswith(".txt"):
