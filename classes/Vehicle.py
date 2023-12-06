@@ -4,6 +4,7 @@ Project 03
 Description: Abstract vehicle class
 """
 from abc import ABC, abstractmethod
+import random
 
 
 class Vehicle(ABC):
@@ -12,6 +13,8 @@ class Vehicle(ABC):
         self.__colour = colour
         self.__speed = 0
         self.__position = 0
+        self.__acceleration_change = [-0.2, -0.1, 0, 0.1, 0.2]
+        self.__weight_values = (1, 2, 6, 2, 1)
 
     def set_position(self, new_position: float) -> None:
         self.__position = new_position
@@ -38,9 +41,10 @@ class Vehicle(ABC):
         new_position = self.get_position() + self.get_speed()
         self.set_position(new_position)
 
-    @abstractmethod
     def accelerate(self) -> None:
-        pass
+        variance = random.choices(self.__acceleration_change, weights=self.__weight_values)
+        variance = variance[0]
+        self.set_speed(self.get_speed() + variance)
 
     @abstractmethod
     def get_icon(self) -> None:

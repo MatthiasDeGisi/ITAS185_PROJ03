@@ -17,6 +17,7 @@ class Motorcycle(v.Vehicle):
 
     def accelerate(self) -> None:
         self.set_speed(self.get_speed() + self.__accel)
+        super().accelerate()
 
     def get_icon(self) -> str:
         return "M"

@@ -17,6 +17,7 @@ class Tesla(v.Vehicle):
 
     def accelerate(self):
         self.set_speed(self.get_speed() + self.__accel)
+        super().accelerate()
 
     def get_icon(self) -> str:
         return "E"
