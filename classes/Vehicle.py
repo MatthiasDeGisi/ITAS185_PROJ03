@@ -13,6 +13,7 @@ class Vehicle(ABC):
         self.__colour = colour
         self.__speed = 0
         self.__position = 0
+        self.__accel = 0
         self.__acceleration_change = [-0.2, -0.1, 0, 0.1, 0.2]
         self.__weight_values = (1, 2, 6, 2, 1)
 
@@ -36,15 +37,20 @@ class Vehicle(ABC):
 
     def get_position_int(self) -> int:
         return int(self.__position)
-    
+
     def move(self) -> None:
         new_position = self.get_position() + self.get_speed()
         self.set_position(new_position)
 
     def accelerate(self) -> None:
-        variance = random.choices(self.__acceleration_change, weights=self.__weight_values)
+        variance = random.choices(
+            self.__acceleration_change, weights=self.__weight_values
+        )
         variance = variance[0]
         self.set_speed(self.get_speed() + variance)
+
+    def get_accel(self) -> float:
+        return self.__accel
 
     @abstractmethod
     def get_icon(self) -> None:
@@ -55,6 +61,6 @@ class Vehicle(ABC):
 
     def __eq__(self, other: "Vehicle"):
         return self.get_position() == other.get_position()
-    
+
     def __lt__(self, other: "Vehicle"):
         return self.get_position() < other.get_position()
