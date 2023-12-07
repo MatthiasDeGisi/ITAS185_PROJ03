@@ -10,10 +10,7 @@ class Tesla(v.Vehicle):
     def __init__(self, model: str, colour: str, is_two_motor: bool):
         super().__init__(model, colour)
         self.__is_two_motor = eval(is_two_motor)
-        if self.__is_two_motor is True:
-            self.__accel = 0.7
-        else:
-            self.__accel = 0.6
+        self.__accel = 0.7 if self.__is_two_motor is True else 0.6
 
     def accelerate(self):
         self.set_speed(self.get_speed() + self.__accel)
@@ -26,7 +23,6 @@ class Tesla(v.Vehicle):
         return "Type: Tesla" + super().__repr__() + f", Two Motor: {self.__is_two_motor}"
     
     def __str__(self) -> str:
-        if self.__is_two_motor:
-            return super().__str__() + " (Two Motor Tesla)"
-        else:
-            return super().__str__() + " (Tesla)"
+        type = "Two Motor Tesla" if self.__is_two_motor else "Tesla"
+        return super().__str__() + f" ({type})"
+
