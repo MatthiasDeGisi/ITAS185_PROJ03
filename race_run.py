@@ -44,38 +44,22 @@ if __name__ == "__main__":
         # opening and processing lines
         try:
             with open(file_name) as file_handle:
-                #readlines and move processing to else -AM
-                for line in file_handle:
-                    read_attributes = line.split(",")
-
-                    # removes the \n
-                    del read_attributes[-1]
-
-                    # instantiates object based on first field
-                    if read_attributes[0] == "Motorcycle":
-                        race_vehicles.append(
-                            m.Motorcycle(read_attributes[1], read_attributes[2])
-                        )
-                    elif read_attributes[0] == "Truck":
-                        race_vehicles.append(
-                            t.Truck(
-                                read_attributes[1],
-                                read_attributes[2],
-                                read_attributes[3],
-                            )
-                        )
-                    elif read_attributes[0] == "Tesla":
-                        race_vehicles.append(
-                            e.Tesla(
-                                read_attributes[1],
-                                read_attributes[2],
-                                read_attributes[3],
-                            )
-                        )
+                file_contents = file_handle.readlines()
 
         except FileNotFoundError as msg:
             print(msg)
             continue
+
+        # create list of vehicle objects
+        else:
+            for item in file_contents:
+                line = item.strip("\n ,").split(",")
+                if line[0] == "Motorcycle":
+                    race_vehicles.append(m.Motorcycle(line[1], line[2]))
+                elif line[0] == "Truck":
+                    race_vehicles.append(t.Truck(line[1], line[2], line[3]))
+                elif line[0] == "Tesla":
+                    race_vehicles.append(e.Tesla(line[1], line[2], line[3]))
 
         # starts race
         round = 0
