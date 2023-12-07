@@ -17,8 +17,6 @@ if __name__ == "__main__":
 
     # user input (validated)
     track_name = input("Enter a name for your racetrack (or leave blank for default): ")
-    if not track_name:
-        track_name = ""
     while True:
         try:
             track_length = int(input("Enter a track length (integer from 20-42): "))

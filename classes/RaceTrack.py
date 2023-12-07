@@ -9,8 +9,11 @@ import classes.Vehicle as v
 
 
 class RaceTrack:
-    def __init__(self, name: str = "ITAS Motor Speedway", length: int = 20) -> None:
-        self.__name = name
+    def __init__(self, name: str, length: int) -> None:
+        if not name:
+            self.__name = "ITAS Motor Speedway"
+        else: 
+            self.__name = name
         self.__length = length
         self.__race_is_won = False
 
