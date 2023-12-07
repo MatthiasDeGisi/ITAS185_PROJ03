@@ -80,14 +80,12 @@ class Vehicle(ABC):
         return int(self.__position)
 
     def move(self) -> None:
-        """Move the vehicle based on speed and position.
-        """
+        """Move the vehicle based on speed and position."""
         new_position = self.get_position() + self.get_speed()
         self.set_position(new_position)
 
     def accelerate(self) -> None:
-        """Accelerate the vehicle based on speed and a random number.
-        """
+        """Accelerate the vehicle based on speed and a random number."""
         variance = random.choices(
             self.__acceleration_change, weights=self.__weight_values
         )
@@ -96,11 +94,10 @@ class Vehicle(ABC):
 
     @abstractmethod
     def get_icon(self) -> None:
-        """Abstract method to get the vehicle icon.
-        """
+        """Abstract method to get the vehicle icon."""
         pass
 
-    def __repr__(self) -> str:
+    def __repr__(self) -> str: # Should add accel to this
         """Return a representation of the vehicle.
 
         Returns:
@@ -118,7 +115,7 @@ class Vehicle(ABC):
             bool: True if self is behind other
         """
         return self.get_position() < other.get_position()
-    
+
     def __str__(self) -> str:
         """Return a nicely formatted string about the vehicle
 
@@ -126,3 +123,4 @@ class Vehicle(ABC):
             str: a nicely formatted string about the vehicle
         """
         return self.get_colour() + " " + self.get_model()
+        
