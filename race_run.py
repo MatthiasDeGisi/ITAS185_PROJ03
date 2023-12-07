@@ -15,7 +15,7 @@ if __name__ == "__main__":
     os.system("cls")
     print("Welcome to racepy!")
 
-    # user input (validated)
+    # user input (validated) loop
     track_name = input("Enter a name for your racetrack (or leave blank for default): ")
     while True:
         try:
@@ -31,6 +31,7 @@ if __name__ == "__main__":
             racetrack = r.RaceTrack(track_name, track_length)
             break
 
+    # main loop to get vehicle file and run race
     while True:
         racetrack.animation()
         race_vehicles = []
@@ -78,7 +79,9 @@ if __name__ == "__main__":
         # play again or exit
         try:
             input("Press enter to race again, or ctrl + c to exit.")
+            racetrack.set_race_is_won(False)
             continue
+
         except KeyboardInterrupt:
             racetrack.animation()
             print("Thanks for playing racepy!")
