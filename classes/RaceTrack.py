@@ -57,10 +57,10 @@ class RaceTrack:
 
     def get_race_is_won(self) -> bool:
         return self.__race_is_won
-    
+
     def set_race_is_won(self, value: bool = True) -> None:
         self.__race_is_won = value
-        
+
     def champion(self, champion: v.Vehicle) -> None:
         print("Congratulations! The winner is:")
         print(champion)
@@ -70,7 +70,16 @@ class RaceTrack:
         return race_vehicles[0]
 
     def animation(self) -> None:
-        self.start = '''
+        for frame in self.__animation_list:
+            os.system("cls")
+            print(frame)
+            time.sleep(0.2)
+        os.system("cls")
+        time.sleep(0.4)
+        os.system("cls")
+
+    __animation_list = [
+        '''
 
 
   
@@ -80,9 +89,8 @@ class RaceTrack:
 _..--  \/ ( (    ) )--._".-.
 _..--------. `--" ;--------"
             `-..-"   
-'''
-
-        self.mid1 = '''
+''',
+        '''
        __
  _.--""  |
 "   |/\| |.--.
@@ -92,9 +100,8 @@ _________|  |_)  _______________
 |tac|__ \\|// _..--  \/ ( (    ) )--._".-.
 _______________..--------. `--" ;--------"
                           `-..-"
-'''
-
-        self.mid2 = '''
+''',
+        '''
                      __
                _.--""  |
 .----.     _.-"   |/\| |.--.
@@ -104,9 +111,8 @@ _______________..--------. `--" ;--------"
  ( (    ) ) __|tac|__ \\|// _..--  \/ ( (    ) )--._".-.
   . `--" ;\__________________..--------. `--" ;--------"
    `-..-"                               `-..-"
-'''
-
-        self.mid3 = '''
+''',
+        '''
                                    __
                              _.--""  |
               .----.     _.-"   |/\| |.--.
@@ -116,9 +122,8 @@ _______________..--------. `--" ;--------"
                ( (    ) ) __|tac|__ \\|// _..--  \/ ( ( 
                 . `--" ;\__________________..--------. `
                  `-..-"                               `-
-'''
-
-        self.end = '''
+''',
+        '''
                                                  __
                                            _.--""  |
                             .----.     _.-"   |/\| |.--.
@@ -128,25 +133,5 @@ _______________..--------. `--" ;--------"
                              ( (    ) ) __|tac|__ \\|// 
                               . `--" ;\_________________
                                `-..-"                   
-'''
-
-        os.system("cls")
-        time.sleep(0.2)
-        os.system("cls")
-        print(self.start)
-        time.sleep(0.2)
-        os.system("cls")
-        print(self.mid1)
-        time.sleep(0.2)
-        os.system("cls")
-        print(self.mid2)
-        time.sleep(0.2)
-        os.system("cls")
-        print(self.mid3)
-        time.sleep(0.2)
-        os.system("cls")
-        print(self.end)
-        time.sleep(0.2)
-        os.system("cls")
-        time.sleep(0.4)
-        os.system("cls")
+''',
+    ]
