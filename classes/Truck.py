@@ -22,5 +22,11 @@ class Truck(v.Vehicle):
     def get_icon(self) -> str:
         return "T"
 
+    def __repr__(self) -> str:
+        return "Type: Truck" + super().__repr__() + f", Diesel: {self.__is_diesel}"
+    
     def __str__(self) -> str:
-        return super().__str__() + f", Diesel: {self.__is_diesel}"
+        if self.__is_two_motor:
+            return super().__str__() + " (Diesel Truck)"
+        else:
+            return super().__str__() + " (Truck)"
