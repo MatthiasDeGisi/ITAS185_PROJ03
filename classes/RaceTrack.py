@@ -10,20 +10,42 @@ import classes.Vehicle as v
 
 class RaceTrack:
     def __init__(self, name: str, length: int) -> None:
+        """Construct a racetrack object.
+
+        Args:
+            name (str): name of the racetrack
+            length (int): length of the racetrack
+        """
         if not name:
             self.__name = "ITAS Motor Speedway"
-        else: 
+        else:
             self.__name = name
-        self.__length = length
+        self.__length = length + 1
         self.__race_is_won = False
 
     def get_name(self) -> str:
+        """Return the name of the racetrack.
+
+        Returns:
+            str: racetrack name
+        """
         return self.__name
 
     def get_length(self) -> int:
+        """Return the length of the racetrack
+
+        Returns:
+            int: racetrack
+        """
         return self.__length
 
     def print_track(self, race_vehicles: list, round: int) -> None:
+        """Print the track with all vehicles on it
+
+        Args:
+            race_vehicles (list): A list of vehicle objects to race
+            round (int): the race round
+        """
         # initial starting prints, variables
         os.system("cls")
         print(self.get_name())
@@ -59,20 +81,47 @@ class RaceTrack:
         time.sleep(1)
 
     def get_race_is_won(self) -> bool:
+        """Check if the race is won.
+
+        Returns:
+            bool: True if a vehicle has crossed the finish line
+        """
         return self.__race_is_won
 
     def set_race_is_won(self, value: bool = True) -> None:
+        """Set the race win status.
+
+        Args:
+            value (bool, optional): Win status of the race. Defaults to True.
+        """
         self.__race_is_won = value
 
-    def champion(self, champion: v.Vehicle) -> None:
-        print("Congratulations! The winner is:")
-        print(champion)
+    def champions(self, champion: v.Vehicle, runner_up: v.Vehicle) -> None:
+        """Print a string with info about the winner and runner up
 
-    def find_champion(self, race_vehicles: list) -> v.Vehicle:
+        Args:
+            champion (v.Vehicle): The winner of the race
+            runner_up (v.Vehicle): The runner up of the race
+        """
+        print("Congratulations! The winner is:")
+        print(f"{champion}!")
+        print("Runner up:")
+        print(f"{runner_up}!")
+
+    def find_champions(self, race_vehicles: list) -> v.Vehicle:
+        """Find the vehicle that has traveled the farthest (champion) and second farthest (runner up)
+
+        Args:
+            race_vehicles (list): list of all vehicle objects in the race
+
+        Returns:
+            v.Vehicle: the 2 vehicles that has traveled the farthest
+        """
         race_vehicles.sort(reverse=True)
-        return race_vehicles[0]
+        return [race_vehicles[0], race_vehicles[1]]
 
     def animation(self) -> None:
+        """Print an animation of a car."""
         for frame in self.__animation_list:
             os.system("cls")
             print(frame)

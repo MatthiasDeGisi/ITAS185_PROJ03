@@ -19,9 +19,9 @@ if __name__ == "__main__":
     track_name = input("Enter a name for your racetrack (or leave blank for default): ")
     while True:
         try:
-            track_length = int(input("Enter a track length (integer from 20-42): "))
+            track_length = int(input("Enter a track length (integer from 20-40): "))
             assert track_length >= 20, "Track length cannot be lower than 20"
-            assert track_length <= 42, "Track length cannot be higher than 42"
+            assert track_length <= 40, "Track length cannot be higher than 40"
         except ValueError:
             print("Track length must be an integer")
         except AssertionError as msg:
@@ -47,6 +47,7 @@ if __name__ == "__main__":
 
         except FileNotFoundError as msg:
             print(msg)
+            time.sleep(1)
             continue
 
         # create list of vehicle objects
@@ -73,8 +74,8 @@ if __name__ == "__main__":
             racetrack.print_track(race_vehicles, round)
 
         # determines winner
-        champion = racetrack.find_champion(race_vehicles)
-        racetrack.champion(champion)
+        champions = racetrack.find_champions(race_vehicles)
+        racetrack.champions(*champions)
 
         # play again or exit
         try:
