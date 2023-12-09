@@ -16,10 +16,7 @@ class RaceTrack:
             name (str): name of the racetrack
             length (int): length of the racetrack
         """
-        if not name:
-            self.__name = "ITAS Motor Speedway"
-        else:
-            self.__name = name
+        self.__name = "ITAS Motor Speedway" if not name else name
         self.__length = length + 1
         self.__race_is_won = False
 
@@ -40,7 +37,7 @@ class RaceTrack:
         return self.__length
 
     def print_track(self, race_vehicles: list, round: int) -> None:
-        """Print the track with all vehicles on it
+        """Print the track with all vehicles on it.
 
         Args:
             race_vehicles (list): A list of vehicle objects to race
@@ -96,7 +93,7 @@ class RaceTrack:
         """
         self.__race_is_won = value
 
-    def champions(self, champion: v.Vehicle, runner_up: v.Vehicle) -> None:
+    def print_champions(self, champion: v.Vehicle, runner_up: v.Vehicle) -> None:
         """Print a string with info about the winner and runner up
 
         Args:
@@ -108,14 +105,14 @@ class RaceTrack:
         print("Runner up:")
         print(f"{runner_up}!")
 
-    def find_champions(self, race_vehicles: list) -> v.Vehicle:
+    def find_champions(self, race_vehicles: list) -> list:
         """Find the vehicle that has traveled the farthest (champion) and second farthest (runner up)
 
         Args:
             race_vehicles (list): list of all vehicle objects in the race
 
         Returns:
-            v.Vehicle: the 2 vehicles that has traveled the farthest
+            list: the 2 vehicles that has traveled the farthest
         """
         race_vehicles.sort(reverse=True)
         return [race_vehicles[0], race_vehicles[1]]

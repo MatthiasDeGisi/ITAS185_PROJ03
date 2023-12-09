@@ -17,9 +17,9 @@ class Vehicle(ABC):
         """
         self.__model = model
         self.__colour = colour
-        self.__speed = 0
-        self.__position = 0
-        self.__accel = 0
+        self.__speed = 0.0
+        self.__position = 0.0
+        self.__accel = 0.0
         self.__acceleration_change = [-0.2, -0.1, 0, 0.1, 0.2]
         self.__weight_values = (1, 2, 6, 2, 1)
 
@@ -97,7 +97,7 @@ class Vehicle(ABC):
         """Abstract method to get the vehicle icon."""
         pass
 
-    def __repr__(self) -> str: # Should add accel to this
+    def __repr__(self) -> str:  # Should add accel to this
         """Return a representation of the vehicle.
 
         Returns:
@@ -123,4 +123,3 @@ class Vehicle(ABC):
             str: a nicely formatted string about the vehicle
         """
         return self.get_colour() + " " + self.get_model()
-        

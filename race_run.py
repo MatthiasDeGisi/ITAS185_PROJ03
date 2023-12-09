@@ -75,7 +75,7 @@ if __name__ == "__main__":
 
         # determines winner
         champions = racetrack.find_champions(race_vehicles)
-        racetrack.champions(*champions)
+        racetrack.print_champions(*champions)
 
         # play again or exit
         try:
