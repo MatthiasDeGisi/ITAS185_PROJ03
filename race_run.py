@@ -72,8 +72,11 @@ if __name__ == "__main__":
                 if item.get_position_int() > racetrack.get_length():
                     racetrack.set_race_is_won()
             racetrack.print_track(race_vehicles, round)
+            time.sleep(1)
 
         # determines winner
+        racetrack.finish_flag()
+        racetrack.print_track(race_vehicles, round)
         champions = racetrack.find_champions(race_vehicles)
         racetrack.print_champions(*champions)
 
