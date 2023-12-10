@@ -19,7 +19,6 @@ class Vehicle(ABC):
         self.__colour = colour
         self.__speed = 0.0
         self.__position = 0.0
-        self.__accel = 0.0
         self.__acceleration_change = [-0.2, -0.1, 0, 0.1, 0.2]
         self.__weight_values = (1, 2, 6, 2, 1)
 
